@@ -31,14 +31,8 @@ jobs:
               newman run 'Inwarranty-flow Collection.postman_collection.json' \
               -e QA.postman_environment.json \
               -d testdata.csv \
-              -r cli,html
-
-       # Debug: list files (helps if upload fails)
-      - name: List files
-        run: |
-          echo "Workspace file structure:"
-          ls -R .
-          
+              -r cli,htmlextra
+              
       - name: Newman Report
         if: always() # ensure that the archive executed irrespective whether the previous steps has passed or not!
         uses: actions/upload-artifact@v5.0.0
