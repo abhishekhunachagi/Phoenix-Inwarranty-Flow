@@ -33,6 +33,7 @@ jobs:
               -d testdata.csv \
               -r cli,html
       - name: Newman Report
+        if: always() # ensure that the archive executed irrespective whether the previous steps has passed or not!
         uses: actions/upload-artifact@v5.0.0
         with:
           name: Newman Report
